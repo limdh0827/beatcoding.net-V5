@@ -16,7 +16,7 @@ fields:
     date_format: 
     time_format: 
     display_utc: false
-- name: content
+- name: description
   type: textarea
   default: ''
   config:
@@ -24,6 +24,6 @@ fields:
     wysiwyg: false
     schema:
       format: markdown
-  label: Content
+  label: Description
 pages:
 - contents/forestry/first-on-forestry.md
