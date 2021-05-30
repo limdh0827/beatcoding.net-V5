@@ -86,13 +86,13 @@ const Header = () => {
           {/* Site navigation */}
           <nav className="flex flex-grow">
             <ul className="flex flex-grow justify-end flex-wrap items-center text-base md:text-lg font-semibold">
-              <li>
+              {/* <li>
                 <Link href="/signin">
                   <a className="text-gray-600 hover:text-gray-900 hover:underline transform hover:scale-105 px-5 py-3 flex items-center transition duration-250 ease-in-out">
                     About
                   </a>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/classroom">
                   <a className="text-gray-600 hover:text-gray-900 hover:underline transform hover:scale-105 px-5 py-3 flex items-center transition duration-250 ease-in-out">

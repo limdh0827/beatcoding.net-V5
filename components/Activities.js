@@ -199,10 +199,13 @@ function Activities() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">
-                      활동 3
+                      자기 소개 (포트폴리오) 웹사이트 만들기
                     </div>
                     <div className="text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      나만의 포트폴리오 웹페이지를 만들어봅니다.
+                      <br />
+                      순수 HTML, CSS, JS를 배우며, 웹에 대한 개념을 배울 수
+                      있습니다.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 rounded-full shadow flex-shrink-0 ml-3">

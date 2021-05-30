@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 
 function Hero() {
-  //   const [videoModalOpen, setVideoModalOpen] = useState(false);
-
-  const heroImage =
-    "https://images.unsplash.com/photo-1622241944227-ae279379cc80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80";
-
   const learnMoreBtn = () => {
     // window.scrollTo({ top: 1000, behavior: "smooth" });
-    document.getElementById("scroll_1").scrollIntoView({ behavior: "smooth" });
+    // document.getElementById("scroll_1").scrollIntoView({ behavior: "smooth" });
+    document.querySelector("#scroll_1").scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="relative">
       <div className=" mx-auto px-4 sm:px-6">
         {/* Hero content */}
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+        <div className="h-screen flex flex-col justify-center items-center">
           {/* Section header */}
-          <div className="text-center pb-12 md:pb-16">
+          <div className="text-center pb-12 md:pb-16 ">
             <h1
               className="font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out"
@@ -25,7 +21,7 @@ function Hero() {
               <span className="bg-clip-text text-6xl md:text-8xl text-transparent bg-gradient-to-r from-btc_start to-btc_end tracking-wide">
                 BeatCoding <br />
               </span>
-              <span className="text-4xl md:text-7xl">Lorem Ipsum</span>
+              <span className="text-4xl md:text-7xl">비트코딩</span>
             </h1>
             <div className="max-w-3xl mx-auto">
               <p
@@ -42,16 +38,16 @@ function Hero() {
               >
                 <button
                   onClick={learnMoreBtn}
-                  className="transition duration-300 ease-in-out text-white  bg-blue-600 hover:bg-btc_start  transform hover:-translate-y-1 hover:scale-110 px-5 py-3 rounded-lg w-10/12 mb-4 sm:w-auto sm:mb-0"
+                  className="transition duration-300 ease-in-out text-white font-normal tracking-wide  bg-blue-600 hover:bg-btc_start  transform hover:-translate-y-1 hover:scale-110 px-5 py-3 rounded-lg w-10/12 mb-4 sm:w-auto sm:mb-0 focus:outline-none"
                 >
-                  Learn More
+                  더 알아보기 &darr;
                 </button>
               </div>
             </div>
           </div>
 
           {/* Hero image */}
-          <div>
+          {/* <div>
             <div
               className="relative flex justify-center mb-8"
               data-aos="zoom-y-out"
@@ -67,7 +63,7 @@ function Hero() {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
