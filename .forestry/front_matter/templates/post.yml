@@ -25,5 +25,3 @@ fields:
     schema:
       format: markdown
   label: Description
-pages:
-- contents/forestry/new-post.md
