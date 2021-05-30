@@ -81,7 +81,7 @@ const Intro = () => {
                     코딩을 몰라도 가입할 수 있습니다. <br />
                   </span>
                   <br />
-                  <span className="text-3xl">🖥 컴덕 환영 🤗</span>
+                  <span className="text-4xl font-black">🖥 컴덕 환영 🤗</span>
                   <br />
                   <br />
                 </blockquote>

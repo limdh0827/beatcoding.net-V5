@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 function Hero() {
   const learnMoreBtn = () => {
@@ -29,7 +30,15 @@ function Hero() {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                2021년{" "}
+                <Link href="https://yshs.djsch.kr/main.do">
+                  <a target="_blank">
+                    <span className="underline text-blue-500">
+                      유성고등학교
+                    </span>
+                  </a>
+                </Link>{" "}
+                창체 동아리
               </p>
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"

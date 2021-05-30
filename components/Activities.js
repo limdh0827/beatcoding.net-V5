@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import Transition from "../utils/Transition.js";
 
 function Activities() {
-  const testImage = [
-    "https://images.unsplash.com/photo-1622241944227-ae279379cc80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
-    "https://images.unsplash.com/photo-1622221297347-961fbd295589?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80",
-    "https://images.unsplash.com/photo-1585399000684-d2f72660f092?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1502&q=80",
+  const courseImages = [
+    "/courses/course-python-1.png",
+    "/courses/course-python-2.png",
+    "/courses/course-web-1.png",
   ];
 
   const [tab, setTab] = useState(1);
@@ -25,7 +25,7 @@ function Activities() {
   }, [tab]);
 
   return (
-    <section className="relative">
+    <section className="relative ">
       <div
         className="absolute inset-0 bg-gray-100 pointer-events-none mb-0 "
         aria-hidden="true"
@@ -56,7 +56,7 @@ function Activities() {
                 </h3>
               </div>
 
-              <div className="mb-8 md:mb-0">
+              <div className="mb-8">
                 <a
                   className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 1
@@ -71,10 +71,11 @@ function Activities() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">
-                      활동 1
+                      파이썬 기초편: What the F*** Python?!
                     </div>
                     <div className="text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      파이썬이 활용되는 분야와 목적, 그리고 장단점을 배우고,
+                      기본 문법(자료형, 제어문, 함수, 클래스 등) 을 배웁니다.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 rounded-full shadow flex-shrink-0 ml-3">
@@ -135,10 +136,13 @@ function Activities() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">
-                      활동 2
+                      파이썬 활용편: 디스코드 봇 만들기
                     </div>
                     <div className="text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      배운 내용들을 토대로, 파이썬으로 작성된 채팅 봇을 제작할
+                      예정입니다
+                      <br />
+                      (개인별 프로젝트)
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 rounded-full shadow flex-shrink-0 ml-3">
@@ -275,7 +279,7 @@ function Activities() {
                   <div className="relative inline-flex flex-col">
                     <img
                       className="md:max-w-none mx-auto rounded "
-                      src={testImage[0]}
+                      src={courseImages[0]}
                       width="500"
                       height="462"
                       alt="Activities"
@@ -297,7 +301,7 @@ function Activities() {
                   <div className="relative inline-flex flex-col">
                     <img
                       className="md:max-w-none mx-auto rounded"
-                      src={testImage[1]}
+                      src={courseImages[1]}
                       width="500"
                       height="462"
                       alt="Activities"
@@ -319,7 +323,7 @@ function Activities() {
                   <div className="relative inline-flex flex-col">
                     <img
                       className="md:max-w-none mx-auto rounded"
-                      src={testImage[2]}
+                      src={courseImages[2]}
                       width="500"
                       height="462"
                       alt="Activities"
