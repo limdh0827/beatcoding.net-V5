@@ -25,3 +25,5 @@ fields:
     schema:
       format: markdown
   label: Content
+pages:
+- contents/forestry/first-on-forestry.md
