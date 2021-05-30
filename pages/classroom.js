@@ -1,11 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import fs from "fs";
-import matter from "gray-matter";
+// import fs from "fs";
+// import matter from "gray-matter";
 import Layout from "../components/class/Layout";
 
+import { createClient } from "contentful";
+
 const Classroom = ({ posts }) => {
+  console.log(posts);
   return (
     <>
       <Head>
@@ -14,19 +17,22 @@ const Classroom = ({ posts }) => {
       </Head>
       <main>
         <Layout>
-          {posts.map(({ frontmatter: { title, description, date }, slug }) => (
-            <article key={title} className="pb-5">
+          {posts.map((post) => (
+            // <div key={post.sys.id}>{post.fields.title}</div>
+            <article key={post.sys.id} className="pb-5">
               <header>
-                {/* <span>수정일: {updatedAt}</span> */}
-                <Link href={"/classroom/[slug]"} as={`/classroom/${slug}`}>
+                <Link
+                  href={"/classroom/[slug]"}
+                  as={`/classroom/${post.fields.slug}`}
+                >
                   <a className="text-3xl font-bold tracking-wide no-underline">
-                    {title}
+                    {post.fields.title}
                   </a>
                 </Link>
               </header>
               <section>
                 <p className="text-gray-700 font-light text-lg">
-                  {description}
+                  {post.fields.updated}
                 </p>
               </section>
             </article>
@@ -38,30 +44,47 @@ const Classroom = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-  const files = fs.readdirSync(`${process.cwd()}/contents/classes`);
-
-  const posts = files.map((filename) => {
-    const markdownWithMetadata = fs
-      .readFileSync(`contents/classes/${filename}`)
-      .toString();
-
-    const { data } = matter(markdownWithMetadata);
-
-    const frontmatter = {
-      ...data,
-    };
-
-    return {
-      slug: filename.replace(".md", ""),
-      frontmatter,
-    };
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
+
+  const res = await client.getEntries({ content_type: "class" });
 
   return {
     props: {
-      posts,
+      posts: res.items,
     },
+    revalidate: 1,
   };
 }
 
 export default Classroom;
+
+// =========== Git based Method ===========
+// export async function getStaticProps() {
+//   const files = fs.readdirSync(`${process.cwd()}/contents/classes`);
+
+//   const posts = files.map((filename) => {
+//     const markdownWithMetadata = fs
+//       .readFileSync(`contents/classes/${filename}`)
+//       .toString();
+
+//     const { data } = matter(markdownWithMetadata);
+
+//     const frontmatter = {
+//       ...data,
+//     };
+
+//     return {
+//       slug: filename.replace(".md", ""),
+//       frontmatter,
+//     };
+//   });
+
+//   return {
+//     props: {
+//       posts,
+//     },
+//   };
+// }
