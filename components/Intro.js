@@ -31,11 +31,7 @@ const Intro = () => {
               />
               <span>비트코딩</span>
             </h2>
-            <p
-              className="text-xl text-gray-600 mt-10"
-              data-aos="zoom-y-out"
-              data-aos-delay="200"
-            >
+            <p className="text-xl text-gray-600 mt-10" data-aos="zoom-y-out">
               코딩의 기초부터 함께 배우고, 배운 내용으로 코딩의 중요성을 깨닫게
               하는 동아리입니다.
             </p>
@@ -44,7 +40,7 @@ const Intro = () => {
               className="mt-14 flex flex-col md:flex-row justify-center items-center space-y-9 md:space-y-0 md:space-x-10"
               data-aos="fade-left"
             >
-              <div className="flex flex-col md:text-left" data-aos-delay="450">
+              <div className="flex flex-col md:text-left">
                 <p className="text-base text-gray-700 ">누구?</p>
                 {/* <hr className="my-2" /> */}
                 <p className="text-2xl font-bold transform transition duration-300 ease-in-out hover:scale-110">
