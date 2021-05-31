@@ -3,7 +3,7 @@ import Link from "next/link";
 import ClassLayout from "../components/class/ClassLayout";
 import Moment from "react-moment";
 import { createClient } from "contentful";
-import Header from "../components/header";
+import Header from "../components/Header";
 
 const Classroom = ({ posts }) => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import ClassLayout from "../../components/class/ClassLayout";
 import { createClient } from "contentful";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
