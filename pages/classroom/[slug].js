@@ -1,26 +1,63 @@
 import React from "react";
-// import fs from "fs";
-// import path from "path";
-// import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
-import Layout from "../../components/class/Layout";
+import ClassLayout from "../../components/class/ClassLayout";
 import { createClient } from "contentful";
+import Header from "../../components/header";
+
+import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { okaidia } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
 });
 
+const codebox = {
+  code({ node, inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || "");
+    return !inline && match ? (
+      <SyntaxHighlighter
+        style={okaidia}
+        language={match[1]}
+        PreTag="div"
+        children={String(children).replace(/\n$/, "")}
+        {...props}
+      />
+    ) : (
+      <code className={className} {...props} />
+    );
+  },
+};
+
 export default function Post({ post }) {
+  const { title, md, main } = post.fields;
+
   return (
     <>
+      <Header title="Classroom" isClass />
       <div className="flex flex-col">
-        <Layout>
-          <article>
-            {/* <ReactMarkdown children={post.fields.content} /> */}
-            {post.fields.title}
-          </article>
-        </Layout>
+        {main ? (
+          <ClassLayout title={title} isToday>
+            <article className="markdown_body">
+              <ReactMarkdown
+                remarkPlugins={[gfm]}
+                children={md}
+                components={codebox}
+              />
+            </article>
+          </ClassLayout>
+        ) : (
+          <ClassLayout title={title}>
+            <article className="markdown_body">
+              <ReactMarkdown
+                remarkPlugins={[gfm]}
+                children={md}
+                components={codebox}
+              />
+            </article>
+          </ClassLayout>
+        )}
       </div>
     </>
   );
@@ -58,42 +95,10 @@ export const getStaticProps = async ({ params }) => {
     };
   }
 
+  const post = items[0];
+
   return {
-    props: { post: items[0] },
+    props: { post },
     revalidate: 1,
   };
 };
-
-// export async function getStaticPaths() {
-//   const files = fs.readdirSync("contents/classes");
-
-//   const paths = files.map((filename) => ({
-//     params: {
-//       slug: filename.replace(".md", ""),
-//     },
-//   }));
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// export async function getStaticProps({ params: { slug } }) {
-//   const markdownWithMetadata = fs
-//     .readFileSync(path.join("contents/classes", slug + ".md"))
-//     .toString();
-
-//   const { data, content } = matter(markdownWithMetadata);
-
-//   const frontmatter = {
-//     ...data,
-//   };
-
-//   return {
-//     props: {
-//       content: `# ${data.title}\n${content}`,
-//       frontmatter,
-//     },
-//   };
-// }

@@ -3,7 +3,7 @@ import Link from "next/link";
 function Ad() {
   return (
     <section id="scroll_join">
-      <div className="max-w-6xl mt-20 mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mt-20 mx-auto pl-2 pr-2">
         <div className="pb-12 md:pb-20">
           <div
             className="relative bg-gray-900 rounded py-10 px-8 md:py-16 md:px-12 shadow-2xl overflow-hidden"

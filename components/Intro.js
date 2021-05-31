@@ -13,7 +13,7 @@ const Intro = () => {
         id="scroll_1"
         className="absolute left-0 right-0 m-auto w-px p-px h-32 transform -translate-y-full "
       ></div>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto pl-2 pr-2">
         <div className="pb-32">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
@@ -38,7 +38,7 @@ const Intro = () => {
 
             <div
               className="mt-14 flex flex-col md:flex-row justify-center items-center space-y-9 md:space-y-0 md:space-x-10"
-              data-aos="fade-left"
+              data-aos="fade-right"
             >
               <div className="flex flex-col md:text-left">
                 <p className="text-base text-gray-700 ">누구?</p>
@@ -66,15 +66,15 @@ const Intro = () => {
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto mt-14" data-aos="flip-left">
-            <div className="relative flex items-start border-2 border-gray-200 rounded-lg bg-btc-logo bg-no-repeat bg-center bg-fixed bg-contain shadow-xl  transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+          <div className="max-w-3xl mx-auto mt-14" data-aos="flip-right">
+            <div className="relative flex items-start border-2 border-gray-200 rounded-lg bg-btc-logo bg-no-repeat bg-center bg-fixed bg-auto shadow-xl transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-105">
               <div className="text-center  py-8 pt-20 mx-auto ">
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 "></div>
                 <blockquote className="text-2xl font-bold mb-4 drop-shadow-2xl		">
                   Beat + Coding, 코딩을 부수다.
                   <br />
                   <span className="text-xl">
-                    코딩을 몰라도 가입할 수 있습니다. <br />
+                    코딩을 처음 배워도 가입할 수 있습니다. <br />
                   </span>
                   <br />
                   <span className="text-4xl font-black">🖥 컴덕 환영 🤗</span>

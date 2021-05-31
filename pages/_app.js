@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/global.css";
+import "../styles/markdown.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../components/Footer";
