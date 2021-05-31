@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Activities from "../components/Activities";
 import Ad from "../components/Ad";
-import Header from "../components/header";
+import Header from "../components/Header";
 
 import Hero from "../components/Hero";
 import Intro from "../components/Intro";
