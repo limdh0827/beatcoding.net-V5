@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import ClassLayout from "../../components/class/ClassLayout";
 import { createClient } from "contentful";
 import Header from "../../components/Header";
@@ -31,8 +32,15 @@ const codebox = {
 };
 
 export default function Post({ post }) {
-  const { title, md, main } = post.fields;
+  const router = useRouter();
 
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+  const { title, md, main } = post.fields;
   return (
     <>
       <Header title="Classroom" isClass />
@@ -69,8 +77,9 @@ export const getStaticPaths = async () => {
   });
 
   const paths = res.items.map((item) => {
+    const slug = item.fields.slug;
     return {
-      params: { slug: item.fields.slug },
+      params: { slug },
     };
   });
 
@@ -88,10 +97,7 @@ export const getStaticProps = async ({ params }) => {
 
   if (!items.length) {
     return {
-      redirect: {
-        destination: "/classroom",
-        permanent: false,
-      },
+      notFound: true,
     };
   }
 
