@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+
 import Link from "next/link";
 
 function Hero() {
@@ -15,12 +17,30 @@ function Hero() {
         <div className="h-screen flex flex-col justify-center items-center">
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16 ">
+            {/*<motion.div*/}
+            {/*  initial="hidden"*/}
+            {/*  animate="visible"*/}
+            {/*  variants={{*/}
+            {/*    hidden: {*/}
+            {/*      scale: 0.5,*/}
+            {/*      opacity: 0,*/}
+            {/*    },*/}
+            {/*    visible: {*/}
+            {/*      scale: 1,*/}
+            {/*      opacity: 1,*/}
+            {/*      transition: {*/}
+            {/*        delay: 0.2,*/}
+            {/*      },*/}
+            {/*    },*/}
+            {/*  }}*/}
+            {/*>*/}
             <h1 className="font-extrabold leading-tighter tracking-tighter mb-4">
               <span className="bg-clip-text text-5xl md:text-8xl text-transparent bg-gradient-to-r from-btc_start to-btc_end tracking-wide">
                 BeatCoding <br />
               </span>
               <span className="text-4xl md:text-7xl">비트코딩</span>
             </h1>
+            {/*</motion.div>*/}
             <div className="max-w-3xl mx-auto">
               <p className="text-lg md:text-xl text-gray-600 mb-8">
                 2021년{" "}

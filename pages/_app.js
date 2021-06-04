@@ -3,9 +3,10 @@ import "../styles/global.css";
 import "../styles/markdown.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { motion, AnimatePresence } from "framer-motion";
 import Footer from "../components/Footer";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   useEffect(() => {
     AOS.init({
       once: true,
@@ -17,8 +18,24 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Component {...pageProps} />
-      <Footer />
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <motion.div
+          key={router.route}
+          initial="pageInitial"
+          animate="pageAnimate"
+          variants={{
+            pageInitial: {
+              opacity: 0,
+            },
+            pageAnimate: {
+              opacity: 1,
+            },
+          }}
+        >
+          <Component {...pageProps} />
+          <Footer />
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }

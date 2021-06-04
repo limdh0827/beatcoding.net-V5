@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import ClassLayout from "../../components/class/ClassLayout";
 import { createClient } from "contentful";
@@ -43,6 +44,11 @@ export default function Post({ post }) {
   const { title, md, main } = post.fields;
   return (
     <>
+      <Head>
+        <title>수업 - {title}</title>
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
+
       <Header title="Classroom" isClass />
       <div className="flex flex-col">
         {main ? (
