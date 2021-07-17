@@ -4,6 +4,7 @@ import "../styles/markdown.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion, AnimatePresence } from "framer-motion";
+
 import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps, router }) {

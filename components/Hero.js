@@ -9,7 +9,6 @@ function Hero() {
     // document.getElementById("scroll_1").scrollIntoView({ behavior: "smooth" });
     document.querySelector("#scroll_1").scrollIntoView({ behavior: "smooth" });
   };
-
   return (
     <section className="relative">
       <div className=" mx-auto pl-6 pr-6">
